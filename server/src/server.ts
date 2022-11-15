@@ -20,7 +20,33 @@ route.get("/", (req: Request, res: Response) => {
 app.use(route);
 
 app.listen(8000, () => "server running on port 8000");
-
-
-
  */
+
+
+import express from "express";
+import { config } from "dotenv";
+config();
+
+const app = express();
+
+//route
+const authRoutes = require("./routes/auth");
+app.use('/api', authRoutes);
+
+
+//app start
+const appStart = () => {
+  try {
+    app.listen(5000, () => {
+      console.log(" ( ᗜ ‿ ᗜ ) ");
+    });
+  } catch (err) {
+    if (err instanceof Error) {
+      console.log(err.message);
+    } else {
+      console.log("Unexpected error", err);
+    }
+  }
+};
+
+appStart()
