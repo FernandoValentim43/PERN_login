@@ -1,5 +1,10 @@
 import express, { Router, Request, Response } from "express";
-const { getUsers } = require("../controllers/auth");
+const { getUsers , register } = require("../controllers/auth");
+const { registerValidation } = require("../validators/auth");
+const { validationMiddleware } = require("../middlewares/validations-middleware");
+
+
+
 
 const app = express();
 const cors = require("cors");
@@ -9,10 +14,13 @@ app.use(express.json());
 
 app.use(cors());
 
-route.get('/register', (req, res) => {
+//test route
+route.get('/test', (req, res) => {
     return res.send("!")
 })
 
 route.get("/get-users", getUsers);
+
+route.post('/register' , registerValidation, validationMiddleware, register)
 
 module.exports = route;

@@ -39,11 +39,11 @@ const appStart = () => {
     app.listen(5000, () => {
       console.log(" ( ᗜ ‿ ᗜ ) 👌 ");
     });
-  } catch (err) {
-    if (err instanceof Error) {
-      console.log(err.message);
+  } catch (error) {
+    if (error instanceof Error) {
+      console.log(error.message);
     } else {
-      console.log("( ◡ ︵◡ ) Its over ", err);
+      console.log("( ◡ ︵◡ ) Its over ", error);
     }
   }
 };
