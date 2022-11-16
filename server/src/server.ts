@@ -31,21 +31,19 @@ const app = express();
 
 //route
 const authRoutes = require("./routes/auth");
-app.use('/api', authRoutes);
+app.use('/', authRoutes);
 
 
 //app start
 const appStart = () => {
   try {
     app.listen(5000, () => {
-      console.log(" ( ᗜ ‿ ᗜ ) ");
+      console.log(" ( ᗜ ‿ ᗜ ) 👌 ");
     });
   } catch (err) {
     if (err instanceof Error) {
-      console.log(err.message);
-    } else {
-      console.log("Unexpected error", err);
-    }
+      console.log("( ◡ ︵◡ ) Its over ", err.message);
+    } 
   }
 };
 

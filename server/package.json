@@ -9,6 +9,7 @@
     "@types/cors": "^2.8.12",
     "@types/node": "^18.11.9",
     "@types/nodemon": "^1.19.2",
+    "@types/pg": "^8.6.5",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
