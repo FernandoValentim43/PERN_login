@@ -31,8 +31,7 @@ const app = express();
 
 //route
 const authRoutes = require("./routes/auth");
-app.use('/', authRoutes);
-
+app.use('/api', authRoutes);
 
 //app start
 const appStart = () => {
@@ -42,8 +41,10 @@ const appStart = () => {
     });
   } catch (err) {
     if (err instanceof Error) {
-      console.log("( ◡ ︵◡ ) Its over ", err.message);
-    } 
+      console.log(err.message);
+    } else {
+      console.log("( ◡ ︵◡ ) Its over ", err);
+    }
   }
 };
 

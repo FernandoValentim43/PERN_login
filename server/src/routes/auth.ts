@@ -8,10 +8,11 @@ const route = Router();
 app.use(express.json());
 
 app.use(cors());
+
 route.get('/register', (req, res) => {
     return res.send("!")
 })
 
-route.get('/get-users', getUsers);
+route.get("/get-users", getUsers);
 
 module.exports = route;
