@@ -40,6 +40,8 @@ const loginCheck = check("username").custom(async ( value: any, {req}: any) => {
   if(!validPassword) {
     throw new Error('Wrong password')
   }
+
+  req.user = user.rows[0]
 })
 
 module.exports = {

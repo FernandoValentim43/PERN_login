@@ -1,5 +1,5 @@
 import express, { Router, Request, Response } from "express";
-const { getUsers , register } = require("../controllers/auth");
+const { getUsers , register , login} = require("../controllers/auth");
 const { registerValidation } = require("../validators/auth");
 const { loginValidation } = require("../validators/auth");
 
@@ -22,7 +22,7 @@ route.get('/test', (req, res) => {
 })
 
 //login
-route.post("/login", loginValidation , validationMiddleware);
+route.post("/login", loginValidation , validationMiddleware, login);
 
 
 //get users
