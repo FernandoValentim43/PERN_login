@@ -24,6 +24,12 @@ const userExists = check("username").custom(async (value: any) => {
   }
 });
 
+//login validation
+const loginCheck = check("username").custom(async ( value: any, {req}: any) => {
+  return console.log(req.body)
+})
+
 module.exports = {
-  registerValidation: [password, username , userExists],
+  registerValidation: [password, username, userExists],
+  loginValidation: [loginCheck]
 };

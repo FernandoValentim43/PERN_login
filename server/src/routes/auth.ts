@@ -1,6 +1,8 @@
 import express, { Router, Request, Response } from "express";
 const { getUsers , register } = require("../controllers/auth");
 const { registerValidation } = require("../validators/auth");
+const { loginValidation } = require("../validators/auth");
+
 const { validationMiddleware } = require("../middlewares/validations-middleware");
 
 
@@ -19,8 +21,14 @@ route.get('/test', (req, res) => {
     return res.send("!")
 })
 
+//login
+route.post("/login", loginValidation , validationMiddleware);
+
+
+//get users
 route.get("/get-users", getUsers);
 
+//register user
 route.post('/register' , registerValidation, validationMiddleware, register)
 
 module.exports = route;
