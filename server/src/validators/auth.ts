@@ -1,4 +1,5 @@
 const { check } = require("express-validator");
+const {compare} = require("bcryptjs")
 const db = require("../db");
 
 //password
@@ -20,13 +21,25 @@ const userExists = check("username").custom(async (value: any) => {
   ]);
 
   if (rows.length) {
-    throw new Error("Username Already exists.");
+    throw new Error("Username Already exists");
   }
 });
 
 //login validation
 const loginCheck = check("username").custom(async ( value: any, {req}: any) => {
-  return console.log(req.body)
+  const user = await db.query("SELECT * from users WHERE username = $1", [
+    value,
+  ]);
+
+  if (!user.rows.length) {
+    throw new Error("User does not exist.");
+  }
+
+  const validPassword = await compare(req.body.password, user.rows[0].password)
+
+  if(!validPassword) {
+    throw new Error('Wrong password')
+  }
 })
 
 module.exports = {
