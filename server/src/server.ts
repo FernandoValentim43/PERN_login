@@ -29,23 +29,23 @@ config();
 
 const app = express();
 
+app.use(express.json())
+
 //route
 const authRoutes = require("./routes/auth");
 app.use('/api', authRoutes);
 
 //app start
+
 const appStart = () => {
   try {
     app.listen(5000, () => {
       console.log(" ( ᗜ ‿ ᗜ ) 👌 ");
     });
-  } catch (error) {
-    if (error instanceof Error) {
-      console.log(error.message);
-    } else {
-      console.log("( ◡ ︵◡ ) Its over ", error);
-    }
+  } catch (error: any) {
+   console.log(error.message);
   }
+  
 };
 
 appStart()
