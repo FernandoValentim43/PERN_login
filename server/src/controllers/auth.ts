@@ -2,8 +2,13 @@ const db = require("../db");
 const { hash } = require("bcryptjs")
 exports.getUsers = async (req: Request, res: Response) => {
   try {
-    const { rows } = await db.query("select * from users");
-    console.log(rows);
+    const { rows } = await db.query("select user_id, username from users");
+    //@ts-ignore
+    return res.status(200).json({
+      sucess: true,
+      users: rows,
+    })
+    console.log("Db is running");
   } catch (err) {
     if (err instanceof Error) {
       console.log(err.message);
@@ -21,7 +26,7 @@ exports.register = async (req: Request, res: Response) => {
   const hashedPassword = await hash(password, 10);
 
   try {
-    
+
 
     await db.query("insert into users(username,password) values ($1 , $2)", [
       username,
