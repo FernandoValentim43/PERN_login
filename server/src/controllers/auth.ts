@@ -21,6 +21,7 @@ exports.register = async (req: Request, res: Response) => {
   const hashedPassword = await hash(password, 10);
 
   try {
+    
 
     await db.query("insert into users(username,password) values ($1 , $2)", [
       username,
