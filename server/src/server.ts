@@ -1,12 +1,21 @@
 import express from "express";
+const app = express();
+const CLIENT_URL = require("./constants");
 import { config } from "dotenv";
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
+const passport = require("passport")
+const cors = require('cors')
 config();
 
-const app = express();
+//import passport middleware
+require('./middlewares/passport-middleware.js')
 
 app.use(express.json());
 app.use(cookieParser())
+app.use(cors({ origin: CLIENT_URL, credentials: true }))
+app.use(passport.initialize())
+
+
 //route
 const authRoutes = require("./routes/auth");
 app.use("/api", authRoutes);

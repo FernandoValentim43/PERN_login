@@ -1,5 +1,6 @@
 import express, { Router, Request, Response } from "express";
-const { getUsers, register, login } = require("../controllers/auth");
+const { getUsers, register, login, logout } = require("../controllers/auth");
+const { userAuth } = require("../middlewares/auth-middleware.js")
 const { registerValidation } = require("../validators/auth");
 const { loginValidation } = require("../validators/auth");
 
@@ -26,13 +27,11 @@ route.get("/get-users", getUsers);
 //login
 route.post("/login", loginValidation, validationMiddleware, login);
 
-
-
 //register user
 route.post("/register", registerValidation, validationMiddleware, register);
 
 //logout
-route.post("/login", loginValidation, validationMiddleware, login);
+route.get("/logout", userAuth, logout);
 
 
 

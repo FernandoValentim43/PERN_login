@@ -56,7 +56,7 @@ exports.login = async (req: Request, res: Response) => {
   };
 
   try {
-    const token = await sign(payload, SECRET)
+    const token = await sign(payload, "123adbc")
 
     //@ts-ignore
     return res.status(200).cookie('token', token, {httpOnly: true}).json({
@@ -76,7 +76,7 @@ exports.login = async (req: Request, res: Response) => {
 exports.logout = async (req: Request, res: Response) => {
   try {
     //@ts-ignore
-    return res.status(200).clearCookie('token', token, {httpOnly: true}).json({
+    return res.status(200).clearCookie('token', {httpOnly: true}).json({
       success: true,
       menssage: "Logged out succefully"
     });
