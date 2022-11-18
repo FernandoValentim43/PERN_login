@@ -20,13 +20,20 @@ route.get("/test", (req, res) => {
   return res.send("!");
 });
 
-//login
-route.post("/login", loginValidation, validationMiddleware, login);
-
 //get users
 route.get("/get-users", getUsers);
 
+//login
+route.post("/login", loginValidation, validationMiddleware, login);
+
+
+
 //register user
 route.post("/register", registerValidation, validationMiddleware, register);
+
+//logout
+route.post("/login", loginValidation, validationMiddleware, login);
+
+
 
 module.exports = route;

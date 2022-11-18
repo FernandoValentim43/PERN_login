@@ -56,7 +56,7 @@ exports.login = async (req: Request, res: Response) => {
   };
 
   try {
-    const token = await sign(payload, "123")
+    const token = await sign(payload, SECRET)
 
     //@ts-ignore
     return res.status(200).cookie('token', token, {httpOnly: true}).json({
@@ -72,5 +72,23 @@ exports.login = async (req: Request, res: Response) => {
     });
   }
 };
+
+exports.logout = async (req: Request, res: Response) => {
+  try {
+    //@ts-ignore
+    return res.status(200).clearCookie('token', token, {httpOnly: true}).json({
+      success: true,
+      menssage: "Logged out succefully"
+    });
+
+  } catch (error: any) {
+    console.log(error.message);
+    //@ts-ignore
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+};
+
 
 export {};
