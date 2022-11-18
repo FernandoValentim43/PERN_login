@@ -1,5 +1,6 @@
-import express, { Router, Request, Response } from "express";
-const { getUsers, register, login, logout } = require("../controllers/auth");
+import express, { Router } from "express";
+
+const { getUsers, register, login, logout, protectedRoute } = require("../controllers/auth");
 const { userAuth } = require("../middlewares/auth-middleware.js")
 const { registerValidation } = require("../validators/auth");
 const { loginValidation } = require("../validators/auth");
@@ -23,6 +24,10 @@ route.get("/test", (req, res) => {
 
 //get users
 route.get("/get-users", getUsers);
+
+//get users
+//@ts-ignore
+route.get("/protected",  userAuth, protectedRoute);
 
 //login
 route.post("/login", loginValidation, validationMiddleware, login);

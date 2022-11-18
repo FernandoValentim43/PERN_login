@@ -2,7 +2,6 @@
 const db = require("../db");
 const { hash } = require("bcryptjs");
 const { sign } = require("jsonwebtoken");
-const SECRET = import("../constants");
 
 exports.getUsers = async (req: Request, res: Response) => {
   try {
@@ -89,6 +88,21 @@ exports.logout = async (req: Request, res: Response) => {
     });
   }
 };
+
+exports.protectedRoute = async (req: Request, res: Response) => {
+  try {
+     //@ts-ignore
+    return res.status(200).json({
+      info: 'protected info',
+    })
+  } catch (error: any) {
+    console.log(error.message);
+    //@ts-ignore
+    return res.status(500).json({
+      error: error.message,
+    });
+  }
+}
 
 
 export {};
