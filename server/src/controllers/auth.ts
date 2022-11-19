@@ -51,11 +51,12 @@ exports.login = async (req: Request, res: Response) => {
   let user = req.user;
   let payload = {
     id: user.user_id,
-    user_name: user.username
+    user_name: user.username,
+
   };
 
   try {
-    const token = await sign(payload, "123adbc")
+    const token = await sign(payload, "123adbc" , {expiresIn:'1d'})
 
     //@ts-ignore
     return res.status(200).cookie('token', token, {httpOnly: true}).json({
@@ -93,7 +94,7 @@ exports.protectedRoute = async (req: Request, res: Response) => {
   try {
      //@ts-ignore
     return res.status(200).json({
-      info: 'protected info',
+      info: 'Authorized',
     })
   } catch (error: any) {
     console.log(error.message);
