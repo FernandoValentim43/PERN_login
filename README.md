@@ -4,7 +4,6 @@
 
 >create a table as the following: 
 
-
 create table users(
     user_id serial PRIMARY KEY unique,
     username varchar(255) not null unique,
