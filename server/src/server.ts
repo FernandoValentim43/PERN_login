@@ -1,23 +1,35 @@
 import express from "express";
-
-import { Router, Request, Response } from "express";
-
-
-
 const app = express();
-const cors = require("cors");
-const route = Router();
+const CLIENT_URL = require("./constants");
+import { config } from "dotenv";
+const cookieParser = require('cookie-parser');
+const passport = require("passport")
+const cors = require('cors')
+config();
+
+//import passport middleware
+require('./middlewares/passport-middleware.js')
 
 app.use(express.json());
-app.use(cors());
-
-route.get("/", (req: Request, res: Response) => {
-  res.json({ message: "hello world with Typescript" });
-});
-
-app.use(route);
-
-app.listen(8000, () => "server running on port 8000");
+app.use(cookieParser())
+app.use(cors({ origin: CLIENT_URL, credentials: true }))
+app.use(passport.initialize())
 
 
+//route
+const authRoutes = require("./routes/auth");
+app.use("/api", authRoutes);
 
+//app start
+
+const appStart = () => {
+  try {
+    app.listen(6000, () => {
+      console.log(" ( ᗜ ‿ ᗜ ) 👌 ");
+    });
+  } catch (error: any) {
+    console.log(error.message);
+  }
+};
+
+appStart();
