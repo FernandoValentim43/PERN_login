@@ -36,7 +36,7 @@ route.post("/login", loginValidation, validationMiddleware, login);
 route.post("/register", registerValidation, validationMiddleware, register);
 
 //logout
-route.get("/logout", userAuth, logout);
+route.get("/logout", logout);
 
 
 
