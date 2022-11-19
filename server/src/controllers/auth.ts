@@ -5,7 +5,7 @@ const { sign } = require("jsonwebtoken");
 
 exports.getUsers = async (req: Request, res: Response) => {
   try {
-    const { rows } = await db.query("select user_id, username from users");
+    const { rows } = await db.query('select user_id, username from users');
     //@ts-ignore
     return res.status(200).json({
       sucess: true,
@@ -27,7 +27,7 @@ exports.register = async (req: Request, res: Response) => {
   const hashedPassword = await hash(password, 10);
 
   try {
-    await db.query("insert into users(username,password) values ($1 , $2)", [
+    await db.query('insert into users(username,password) values ($1 , $2)', [
       username,
       hashedPassword,
     ]);

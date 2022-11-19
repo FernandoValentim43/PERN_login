@@ -24,7 +24,7 @@ app.use("/api", authRoutes);
 
 const appStart = () => {
   try {
-    app.listen(6000, () => {
+    app.listen(4000, () => {
       console.log(" ( ᗜ ‿ ᗜ ) 👌 ");
     });
   } catch (error: any) {
