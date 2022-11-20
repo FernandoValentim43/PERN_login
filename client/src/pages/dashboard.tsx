@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { Layout } from "../components/layout";
-const dashboard = () => {
+import "../index.css"
+
+const Dashboard = () => {
+  
   return (
     <Layout>
-      <h1>Register</h1>
+     <p>dashbbaord</p>
     </Layout>
   );
 };
 
-export default dashboard;
+export default Dashboard;
