@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom"
+import { AiOutlineHome } from "react-icons/ai";
 
 
 const Navbar = () => {
@@ -6,9 +7,12 @@ const Navbar = () => {
   return (
     <nav className='navbar navbar-light bg-light'>
       <div className='container'>
-        <div>
-          <NavLink to='/'>
-            <span className='navbar-brand mb-0 h1'>Home</span>
+        <div >
+          <NavLink to='/' style={{ color: "transparent"}}>
+            <div className="flex flex-row justify-center items-center">
+              <AiOutlineHome  fontSize="1.5em" className="mr-2" color="black"/>
+              <span className='navbar-brand mb-0 h1'>Home</span>
+            </div>
           </NavLink>
         </div>
 
