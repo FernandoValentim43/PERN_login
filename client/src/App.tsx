@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate , Routes, Outlet, Route  } from 'react-router-d
 
 import Home from './pages/home';
 import Dashboard from './pages/dashboard';
-import Register from './pages/register';
+import Register from './pages/register.js';
 import Login from './pages/login';
 
 import "./index.css"
