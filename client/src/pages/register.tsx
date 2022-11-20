@@ -26,7 +26,7 @@ const Register = () => {
 
           <div className="mb-4">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-gray-700 text-sm font-bold mb-1"
               htmlFor="username"
             >
               Username
@@ -41,23 +41,24 @@ const Register = () => {
 
           <div className="mb-4">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-gray-700 text-sm font-bold mb-1"
               htmlFor="password"
             >
-              password
+              Password
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="username"
-              type="text"
-              placeholder="Username"
+              type="password"
+              placeholder="password"
             />
           </div>
 
           <div className="mb-4">
             <button
+           
               className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-              type="button"
+              type="submit"
             >
               Sign Up
             </button>
