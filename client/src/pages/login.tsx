@@ -1,9 +1,9 @@
-
+import { Layout } from "../components/layout";
 const login = () => {
   return (
-    <h1 className="">
-      login
-    </h1>
+    <Layout>
+      <h1>login</h1>
+    </Layout>
   );
 };
 

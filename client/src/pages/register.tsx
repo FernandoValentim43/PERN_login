@@ -1,9 +1,9 @@
-
+import { Layout } from "../components/layout";
 const register = () => {
   return (
-    <h1 className="">
-      register
-    </h1>
+    <Layout>
+      <h1>register</h1>
+    </Layout>
   );
 };
 

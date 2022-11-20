@@ -6,7 +6,6 @@ import Register from './pages/register';
 import Login from './pages/login';
 
 import "./index.css"
-import Navbar from './components/navbar';
 
 
 
@@ -24,12 +23,9 @@ const RestrictedRoute = () => {
 }
 
 
-
-
 const App = () => {
   return (
     <BrowserRouter>
-    <Navbar />
       <Routes>
         <Route path="/" element={<Home />}/>
 
