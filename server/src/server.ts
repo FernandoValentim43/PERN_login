@@ -5,6 +5,8 @@ import { config } from "dotenv";
 const cookieParser = require('cookie-parser');
 const passport = require("passport")
 const cors = require('cors')
+
+const door = "4000"
 config();
 
 //import passport middleware
@@ -24,8 +26,8 @@ app.use("/api", authRoutes);
 
 const appStart = () => {
   try {
-    app.listen(4000, () => {
-      console.log(" ( ᗜ ‿ ᗜ ) 👌 ");
+    app.listen(door, () => {
+      console.log(` ( ᗜ ‿ ᗜ ) 👌 Server Running on door ${door}`);
     });
   } catch (error: any) {
     console.log(error.message);
