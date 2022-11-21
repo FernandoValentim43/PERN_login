@@ -1,9 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import { VscSignOut } from "react-icons/vsc";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const isAuth = false;
+  //@ts-ignore
+  const { isAuth } = useSelector((state) => state.auth);
+
   return (
     <nav className="navbar navbar-light bg-light">
       <div className="container">

@@ -2,6 +2,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { onLogin } from "../api/auth";
 import { Layout } from "../components/layout";
+import { authenticateUser } from '../redux/slices/authSlice'
 import "../index.css";
 
 const Login = () => {
@@ -15,11 +16,12 @@ const Login = () => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
+  const dispatch = useDispatch()
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
       await onLogin(values)
-     
+      dispatch(authenticateUser())
 
       localStorage.setItem('isAuth', 'true')
     } catch (error) {
