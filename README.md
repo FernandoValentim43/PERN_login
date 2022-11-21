@@ -13,9 +13,25 @@ create table users(
 );
 
 ##  Initialize the project backend
+> cd server 
+
 > npm install --global yarn
 
 > yarn 
 
 > yarn dev (to start the backend)
+
+> check the server door
+
+##  Initialize the project frontend
+> cd client 
+
+> npm install --global yarn
+
+> yarn 
+
+> yarn start (to start the frontend)
+
+
+
 
