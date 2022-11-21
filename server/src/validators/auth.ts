@@ -16,7 +16,7 @@ const username = check("username")
 
 //check is username is unique
 const userExists = check("username").custom(async (value: any) => {
-  const { rows } = await db.query("SELECT * from users WHERE username = $1", [
+  const { rows } = await db.query('SELECT * from users WHERE username = $1', [
     value,
   ]);
 
@@ -27,7 +27,7 @@ const userExists = check("username").custom(async (value: any) => {
 
 //login validation
 const loginCheck = check("username").custom(async ( value: any, {req}: any) => {
-  const user = await db.query("SELECT * from users WHERE username = $1", [
+  const user = await db.query('SELECT * from users WHERE username = $1', [
     value,
   ]);
 
